@@ -7,6 +7,13 @@ const initialState = {
   loading: false,
 };
 
+/** Async Functions for SinglePost:
+ * - Get Post Details
+ * - Edit Post
+ * - Delete Post
+ */
+
+// Get Post Details: (id) => { post with post_id = id}
 export const getPostDetails = createAsyncThunk(
   // 1. action type string
   "post/getPostDetails",
@@ -18,6 +25,7 @@ export const getPostDetails = createAsyncThunk(
   }
 );
 
+// editPostDetails (id, editedPost) => {post}
 export const editPostDetails = createAsyncThunk(
   // 1. action type string
   "post/editPostDetails",
@@ -29,6 +37,7 @@ export const editPostDetails = createAsyncThunk(
   }
 );
 
+// deletePost (id) => deleted
 export const deletePostDetails = createAsyncThunk(
   // 1. action type string
   "post/deletePostDetails",
@@ -39,19 +48,11 @@ export const deletePostDetails = createAsyncThunk(
   }
 );
 
+//slice
 export const singlePostSlice = createSlice({
   name: "post",
   initialState,
-  reducers: {
-    // addPost: (state, action) => {
-    //   const newPost = action.payload;
-    //   state.posts = { ...state.posts, [newPost.id]: newPost };
-    // },
-    // removePost: (state, action) => {
-    //   const postId = action.payload;
-    //   delete state.posts[postId];
-    // },
-  },
+  reducers: {},
   extraReducers: {
     [getPostDetails.pending]: (state) => {
       state.loading = true;
@@ -85,10 +86,5 @@ export const singlePostSlice = createSlice({
     },
   },
 });
-
-// export const { addPost, removePost } = postSlice.actions;
-
-// console.log(memeSlice);
-// console.log(memeSlice.getInitialState());
 
 export default singlePostSlice.reducer;

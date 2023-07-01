@@ -1,6 +1,18 @@
 import React from "react";
 import "./PostDetails.css";
 
+/** PostDetails Component
+ *
+ * Props:
+ *  - post (post with id)
+ *  - handlePostEdit
+ *  - handlePostDelete
+ *
+ *
+ * Renders post information with an edit and delete button
+ *
+ */
+
 const PostDetails = ({ post, handlePostEdit, handlePostDelete }) => {
   return (
     <div className="PostDetails">

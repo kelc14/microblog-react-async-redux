@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from "react";
-import NewCommentForm from "./NewCommentForm";
-import { useDispatch, useSelector } from "react-redux";
-
+import React from "react";
 import "./CommentList.css";
 
-const CommentList = ({ comments, handleCommentDelete }) => {
-  // instead of passing post down, what if we get it from the store using the id, then store alerts in state - add a new alert when a new comment is successfully added - > can also use an alert after post is successfully edited.
+/**
+ * CommentList Component:
+ *
+ * Props:
+ *
+ * - comments for post (with id comments.post_id)
+ * - handleCommentDelete => removes comment with id => comment.id
+ *
+ *
+ * Renders: List of Comments with delete icon
+ *
+ */
 
+const CommentList = ({ comments, handleCommentDelete }) => {
   return (
     <div className="CommentList">
       <h3 className="CommentList-heading">Comments</h3>

@@ -4,9 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 /**  NewCommentForm component
  *
+ * Props: id (post_id), handleCommentAdd
+ *
  * - adds new comment for post with {id}
  *
  *  state: formData
+ *
+ * Renders: form to add a new comment
  *
  */
 const NewCommentForm = ({ id, handleCommentAdd }) => {
@@ -23,7 +27,7 @@ const NewCommentForm = ({ id, handleCommentAdd }) => {
   /** Handle submitting new comment */
   const handleSubmit = (event) => {
     event.preventDefault();
-    // add id to new comment
+    // add post_id to new comment
     const newComment = { ...formData, post_id: id };
     // add comment
     handleCommentAdd(newComment);

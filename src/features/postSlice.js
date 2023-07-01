@@ -7,6 +7,12 @@ const initialState = {
   loading: false,
 };
 
+/** Async Functions for Comments:
+ * - Get Posts (ALL)
+ * - Add Post
+ */
+
+// Get Posts: () => [all posts]
 export const getPosts = createAsyncThunk(
   // 1. action type string
   "posts/getPosts",
@@ -17,6 +23,7 @@ export const getPosts = createAsyncThunk(
   }
 );
 
+// Add Post: (post) => {post}
 export const addPost = createAsyncThunk(
   // 1. action type string
   "posts/addPost",
@@ -27,19 +34,11 @@ export const addPost = createAsyncThunk(
   }
 );
 
+// slice
 export const postSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {
-    // addPost: (state, action) => {
-    //   const newPost = action.payload;
-    //   state.posts = { ...state.posts, [newPost.id]: newPost };
-    // },
-    // removePost: (state, action) => {
-    //   const postId = action.payload;
-    //   delete state.posts[postId];
-    // },
-  },
+  reducers: {},
   extraReducers: {
     [getPosts.pending]: (state) => {
       state.loading = true;
@@ -63,10 +62,5 @@ export const postSlice = createSlice({
     },
   },
 });
-
-export const { removePost } = postSlice.actions;
-
-// console.log(memeSlice);
-// console.log(memeSlice.getInitialState());
 
 export default postSlice.reducer;

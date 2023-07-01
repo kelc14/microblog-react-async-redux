@@ -2,6 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
+/** HeaderComponent
+ *
+ * Displays blog name and links to homepage (blog) and adding a new post
+ *
+ *
+ *  NO PROPS
+ */
+
 const Header = () => {
   return (
     <div className="Header">

@@ -1,8 +1,7 @@
 .Blog {
   padding: 25px;
 }
-.Blog-headline {
-}
+
 .Blog-all-post-container {
   display: flex;
   flex-direction: row;
@@ -21,6 +20,4 @@
   text-decoration: none;
   font-weight: 800;
   color: rgb(42, 111, 238);
-}
-.Blog-post-description {
 }

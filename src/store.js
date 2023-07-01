@@ -8,6 +8,5 @@ export const store = configureStore({
     posts: postReducer,
     post: singlePostReducer,
     comments: commentsSlice,
-    // features go on here
   },
 });

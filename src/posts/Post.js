@@ -6,7 +6,6 @@ import PostDetails from "./PostDetails";
 import PostForm from "./PostForm";
 import CommentList from "../comments/CommentList";
 import NewCommentForm from "../comments/NewCommentForm";
-import "./Post.css";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";

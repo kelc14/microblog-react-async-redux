@@ -7,6 +7,13 @@ const initialState = {
   commentsLoading: false,
 };
 
+/** Async Functions:
+ * - Get Comments
+ * - Add Comment
+ * - Delete Comment
+ */
+
+// Get Comments: (id) => [all comments with post_id = id]
 export const getComments = createAsyncThunk(
   // 1. action type string
   "comments/getComments",
@@ -17,6 +24,9 @@ export const getComments = createAsyncThunk(
     return res.data;
   }
 );
+
+// AddComment - Add a New Comment with post_id = comment.post_id
+//   (comment) => {comment}
 export const addComment = createAsyncThunk(
   // 1. action type string
   "comments/addComment",
@@ -30,6 +40,8 @@ export const addComment = createAsyncThunk(
   }
 );
 
+// Delete Comment with postId and commentId
+// (postId, commentId) => commentId
 export const deleteComment = createAsyncThunk(
   // 1. action type string
   "comments/deleteComment",
@@ -42,6 +54,7 @@ export const deleteComment = createAsyncThunk(
   }
 );
 
+// Slice
 const commentsSlice = createSlice({
   name: "comments",
   initialState,
@@ -81,10 +94,5 @@ const commentsSlice = createSlice({
     },
   },
 });
-
-// export const {} = commentsSlice.actions;
-
-// console.log(memeSlice);
-// console.log(memeSlice.getInitialState());
 
 export default commentsSlice.reducer;
