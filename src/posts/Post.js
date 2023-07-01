@@ -10,12 +10,18 @@ import "./Post.css";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { getPostDetails } from "../features/singlePostSlice";
+import { deletePostDetails, getPostDetails } from "../features/singlePostSlice";
 // import { removePost } from "../features/postSlice";
 
 /** Post component
  *
  * => initiates API call to retrieve post details based on ID from redux, gets post and associated comments from redux store
+ *
+ * handles:
+ * - editing post
+ * - deleting post
+ * - adding comments
+ * - deleting comments
  *
  * => if editing = true:
  *          - renders: PostForm
@@ -40,7 +46,7 @@ const Post = () => {
   // fetch posts when site loads
   useEffect(() => {
     dispatch(getPostDetails(id));
-  }, []);
+  }, [dispatch, id]);
 
   const handlePostEdit = () => {
     setEditNow(true);
@@ -49,7 +55,7 @@ const Post = () => {
 
   const handlePostDelete = () => {
     // delete the post from the backend
-    // dispatch(removePost(id));
+    dispatch(deletePostDetails(id));
     navigate("/");
   };
 

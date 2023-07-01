@@ -31,6 +31,7 @@ const PostForm = ({ postData }) => {
   /** Handle submission of form to post new blog */
   const handleSubmit = (event) => {
     event.preventDefault();
+    // add post if there was not already data existing on render, otherwise submit edit of the postData
     !postData
       ? dispatch(addPost(formData))
       : dispatch(editPostDetails({ id: postData.id, data: formData }));
