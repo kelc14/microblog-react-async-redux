@@ -18,6 +18,17 @@ export const getPostDetails = createAsyncThunk(
   }
 );
 
+export const editPostDetails = createAsyncThunk(
+  // 1. action type string
+  "post/editPostDetails",
+  // 2. callback function
+  async (postDetails, thunkAPI) => {
+    const { id, data } = postDetails;
+    const res = await axios.put(`${API_URL}/${id}`, data);
+    return res.data;
+  }
+);
+
 export const singlePostSlice = createSlice({
   name: "post",
   initialState,
@@ -40,6 +51,16 @@ export const singlePostSlice = createSlice({
       state.post = payload;
     },
     [getPostDetails.rejected]: (state) => {
+      state.loading = false;
+    },
+    [editPostDetails.pending]: (state) => {
+      state.loading = true;
+    },
+    [editPostDetails.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.post = payload;
+    },
+    [editPostDetails.rejected]: (state) => {
       state.loading = false;
     },
   },

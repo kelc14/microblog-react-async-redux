@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PostForm.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addPost } from "../features/postSlice";
+import { editPostDetails } from "../features/singlePostSlice";
 
 /** PostForm component
  *
@@ -26,12 +27,13 @@ const PostForm = ({ postData }) => {
 
   let navigate = useNavigate();
   let dispatch = useDispatch();
-  const { posts } = useSelector((store) => store.post);
 
   /** Handle submission of form to post new blog */
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addPost(formData));
+    !postData
+      ? dispatch(addPost(formData))
+      : dispatch(editPostDetails({ id: postData.id, data: formData }));
     navigate("/");
     setFormData(INITIAL_STATE);
   };
