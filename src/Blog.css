@@ -1,0 +1,26 @@
+.Blog {
+  padding: 25px;
+}
+.Blog-headline {
+}
+.Blog-all-post-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.Blog-post-container {
+  width: 35%;
+  padding: 25px;
+  border: 1px solid rgb(222, 221, 221);
+  border-radius: 8px;
+  margin: 25px;
+}
+.Blog-post-link {
+  text-decoration: none;
+  font-weight: 800;
+  color: rgb(42, 111, 238);
+}
+.Blog-post-description {
+}

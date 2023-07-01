@@ -1,0 +1,34 @@
+.PostDetails {
+  text-align: left;
+  position: relative;
+  padding: 25px;
+}
+
+.PostDetails-title {
+  padding: 0px;
+  margin: 0px;
+}
+.PostDetails-description {
+  font-size: 0.9rem;
+}
+.PostDetails-body {
+}
+
+.PostDetails-btn-container {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+.PostDetails-btn-delete {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: red;
+  font-size: 1.6rem;
+  padding-left: 10px;
+}
+.PostDetails-btn-edit {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: rgb(42, 111, 238);
+  font-size: 1.6rem;
+}

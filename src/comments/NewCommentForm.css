@@ -1,0 +1,22 @@
+.NewCommentForm {
+  width: 100%;
+  margin-top: 10px;
+}
+.NewCommentForm-input {
+  font-size: 1rem;
+  width: 50%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  margin-right: 5px;
+}
+.NewCommentForm-btn {
+  background-color: rgb(42, 111, 238);
+  margin-right: 15px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.CommentList {
+}
+.CommentList-comment-container {
+  display: flex;
+  display: row;
+}
+/* .CommentList-comment-container:nth-child(2) {
+  background-color: rgba(173, 216, 230, 0.2);
+  border-radius: 3px;
+} */
+.CommentList-delete {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+}
+.CommentList-comment {
+  font-style: italic;
+}
+
+.CommentList-alert-success {
+  background-color: #12c99b;
+  color: white;
+}

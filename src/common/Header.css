@@ -1,0 +1,19 @@
+.Header {
+  background-color: aliceblue;
+  padding: 25px;
+  text-align: left;
+  padding-bottom: 50px;
+}
+
+.Header-heading {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.Header-subheading {
+  margin-bottom: 30px;
+}
+
+.Header-links-container a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: blue;
+}
