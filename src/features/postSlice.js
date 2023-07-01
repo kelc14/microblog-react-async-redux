@@ -23,8 +23,7 @@ export const addPost = createAsyncThunk(
   // 2. callback function
   async (data, thunkAPI) => {
     const res = await axios.post(API_URL, data);
-    console.log(res);
-    return res;
+    return res.data;
   }
 );
 

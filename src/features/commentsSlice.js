@@ -36,9 +36,7 @@ export const deleteComment = createAsyncThunk(
   // 2. callback function
   async (data, thunkAPI) => {
     const { postId, commentId } = data;
-    const res = await axios.delete(
-      `${API_URL}/${postId}/comments/${commentId}`
-    );
+    await axios.delete(`${API_URL}/${postId}/comments/${commentId}`);
 
     return commentId;
   }
@@ -74,7 +72,6 @@ const commentsSlice = createSlice({
     },
     [deleteComment.fulfilled]: (state, { payload }) => {
       state.commentsLoading = false;
-      // come back to check this
       state.comments = state.comments.filter(
         (comment) => comment.id !== payload
       );
