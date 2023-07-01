@@ -16,7 +16,6 @@ const Blog = () => {
 
   if (loading) return <p>Loading...</p>;
 
-  console.log(posts);
   return (
     <div className="Blog">
       <p className="Blog-headline">

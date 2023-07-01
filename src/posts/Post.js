@@ -11,7 +11,11 @@ import "./Post.css";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { deletePostDetails, getPostDetails } from "../features/singlePostSlice";
-// import { removePost } from "../features/postSlice";
+import {
+  getComments,
+  deleteComment,
+  addComment,
+} from "../features/commentsSlice";
 
 /** Post component
  *
@@ -41,12 +45,14 @@ const Post = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { post, loading } = useSelector((store) => store.post);
-
   // fetch posts when site loads
   useEffect(() => {
     dispatch(getPostDetails(id));
+    dispatch(getComments(id));
   }, [dispatch, id]);
+
+  const { post, loading } = useSelector((store) => store.post);
+  const { comments, commentsLoading } = useSelector((store) => store.comments);
 
   const handlePostEdit = () => {
     setEditNow(true);
@@ -57,6 +63,14 @@ const Post = () => {
     // delete the post from the backend
     dispatch(deletePostDetails(id));
     navigate("/");
+  };
+
+  const handleCommentAdd = (comment) => {
+    dispatch(addComment(comment));
+  };
+
+  const handleCommentDelete = (commentId) => {
+    dispatch(deleteComment({ postId: id, commentId: commentId }));
   };
 
   if (loading) return <p>Loading...</p>;
@@ -70,8 +84,17 @@ const Post = () => {
             handlePostEdit={handlePostEdit}
             handlePostDelete={handlePostDelete}
           />
-          <CommentList comments={post.comments} />
-          <NewCommentForm />
+          {commentsLoading ? (
+            <p>Comments Loading...</p>
+          ) : (
+            <>
+              <CommentList
+                comments={comments}
+                handleCommentDelete={handleCommentDelete}
+              />
+              <NewCommentForm id={id} handleCommentAdd={handleCommentAdd} />
+            </>
+          )}
         </>
       )}
 

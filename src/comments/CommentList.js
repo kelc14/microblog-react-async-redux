@@ -4,18 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "./CommentList.css";
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, handleCommentDelete }) => {
   // instead of passing post down, what if we get it from the store using the id, then store alerts in state - add a new alert when a new comment is successfully added - > can also use an alert after post is successfully edited.
-
-  const deleteComment = (comment_id) => {
-    // logic to delete the comments
-    // dispatch(removeComment([comment_id, id]));
-  };
 
   return (
     <div className="CommentList">
       <h3 className="CommentList-heading">Comments</h3>
-      {!comments && (
+      {comments.length === 0 && (
         <>
           <p className="CommentList-comment">
             Be the first to leave a comment.
@@ -27,7 +22,7 @@ const CommentList = ({ comments }) => {
           <div className="CommentList-comment-container" key={comment.id}>
             <button
               className="CommentList-delete"
-              onClick={() => deleteComment(comment.id)}
+              onClick={() => handleCommentDelete(comment.id)}
             >
               ❌
             </button>

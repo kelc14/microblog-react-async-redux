@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./NewCommentForm.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { v4 as uuid } from "uuid";
 
 /**  NewCommentForm component
  *
@@ -11,11 +9,10 @@ import { v4 as uuid } from "uuid";
  *  state: formData
  *
  */
-const NewCommentForm = ({ id }) => {
+const NewCommentForm = ({ id, handleCommentAdd }) => {
   const INITIAL_STATE = { text: "" };
   const [formData, setFormData] = useState(INITIAL_STATE);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   /** Update local storage w/ current state of input elements */
   const handleChange = (event) => {
@@ -27,11 +24,9 @@ const NewCommentForm = ({ id }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // add id to new comment
-    const newComment = { ...formData, post_id: id, comment_id: uuid() };
-    // // alert
-    // newCommentAlert("success");
-    // send new comment to backend to store
-    // dispatch(addComment(newComment));
+    const newComment = { ...formData, post_id: id };
+    // add comment
+    handleCommentAdd(newComment);
     navigate(`/${id}`);
     setFormData(INITIAL_STATE);
   };
@@ -46,6 +41,7 @@ const NewCommentForm = ({ id }) => {
         value={formData.text}
         onChange={handleChange}
         placeholder="Comment"
+        required
       />
       <button className="NewCommentForm-btn">Add</button>
     </form>
